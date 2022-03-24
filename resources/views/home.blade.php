@@ -83,6 +83,28 @@
                         </li>
                         <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
                         <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
+
+                        @if(Route::has('login'))
+
+                            @auth
+                                <li class="nav-item">
+                                    <x-app-layout>
+                                    </x-app-layout>
+                                </li>
+
+
+
+                            @else
+                                <li class="nav-item">
+                                    <a  href="{{route('login')}}">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('register')}}">Register</a>
+                                </li>
+                                @endauth
+                                @endif
+
+
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
