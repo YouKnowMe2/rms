@@ -22,8 +22,21 @@ Route::get('/redirects', [HomeController::class,'redirects']);
 
 
 Route::get('/users', [AdminController::class,'users'])->name('users');
+Route::get('/foodMenu', [AdminController::class,'foodMenu'])->name('foodMenu');
+Route::get('/reservation', [AdminController::class,'viewReservation'])->name('viewReservation');
+Route::get('/viewChef', [AdminController::class,'viewChef'])->name('viewChef');
 Route::get('/deleteUser/{id}', [AdminController::class,'delete']);
+Route::get('/deleteFood/{id}', [AdminController::class,'deleteFood'])->name('deleteFood');
+Route::get('/deleteChef/{id}', [AdminController::class,'deleteChef'])->name('deleteChef');
+Route::get('/deleteReservation/{id}', [AdminController::class,'deleteReservation'])->name('deleteReservation');
+Route::get('/viewFood/{id}', [AdminController::class,'viewFood'])->name('viewFood');
+Route::get('/editchef/{id}', [AdminController::class,'editChef'])->name('editchef');
+Route::Post('/editedChef/{id}', [AdminController::class,'editedChef'])->name('editedChef');
+Route::POST('/updateFood/{id}', [AdminController::class,'updateFood'])->name('updateFood');
+Route::POST('/reservation', [AdminController::class,'reservation'])->name('reservation');
 
+Route::POST('/upload_food', [AdminController::class,'upload_food'])->name('upload_food');
+Route::POST('/upload_chef', [AdminController::class,'upload_chef'])->name('upload_chef');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
